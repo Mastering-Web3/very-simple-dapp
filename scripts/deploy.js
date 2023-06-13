@@ -8,15 +8,15 @@ const hre = require("hardhat");
 
 async function main() {
   const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const unlockTime = currentTimestampInSeconds + 120; // 2 minutes from now
 
-  const lockedAmount = hre.ethers.parseEther("0.001");
+  const lockedAmount = hre.ethers.parseEther("1000"); // 1000 ETH
 
   const lock = await hre.ethers.deployContract("Lock", [unlockTime], {
     value: lockedAmount,
-  });
+  }); // deploy Lock contract with unlockTime and lockedAmount
 
-  await lock.waitForDeployment();
+  await lock.waitForDeployment(); // wait for deployment to complete
 
   console.log(
     `Lock with ${ethers.formatEther(
