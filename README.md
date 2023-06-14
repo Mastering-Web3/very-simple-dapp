@@ -40,8 +40,6 @@ npx hardhat run scripts/deploy.js --network localhost
 
 6. Interact with the frontend.
 
+In the browser go to developer tools and check the console for logs.
 
-
-
-
-
+If getting error nonce too low, reset the account in Metamask. Go to Metamask > Click on account icon > Click on settings > Advanced > Clear Activity tab data. 
